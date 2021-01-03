@@ -133,7 +133,7 @@ class MandelbrotApp {
         gl.bindBuffer(gl.ARRAY_BUFFER, this.data_buffer);
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(this.data), gl.STATIC_DRAW);
 
-        var coords = 0;
+        var coords = gl.getAttribLocation(this.shaderProgram,"coords");
         gl.vertexAttribPointer(coords, 2, gl.FLOAT, false, 4 * 4, 0);
         gl.enableVertexAttribArray(coords);
 
@@ -141,7 +141,7 @@ class MandelbrotApp {
         var max_iters_loc = gl.getUniformLocation(this.shaderProgram, "max_iters");
         gl.uniform1i(max_iters_loc, this.max_iters);
 
-        var c = 1;
+        var c = gl.getAttribLocation(this.shaderProgram,"c");
         gl.vertexAttribPointer(c, 2, gl.FLOAT, false, 4 * 4, 8);
         gl.enableVertexAttribArray(c);
 
