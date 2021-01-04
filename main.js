@@ -100,36 +100,16 @@ class MandelbrotApp {
         var center_y = this.center_y;
         var size_x = this.size_x;
         var size_y = this.size_y;
-        this.data = [];
-        this.data.push(-1);
-        this.data.push(-1);
-        this.data.push(center_x - size_x / 2);
-        this.data.push(center_y - size_y / 2);
-        
-        this.data.push(1);
-        this.data.push(-1);
-        this.data.push(center_x + size_x / 2);
-        this.data.push(center_y - size_y / 2);
-        
-        this.data.push(1);
-        this.data.push(1);
-        this.data.push(center_x + size_x / 2);
-        this.data.push(center_y + size_y / 2);
-        
-        this.data.push(-1);
-        this.data.push(-1);
-        this.data.push(center_x - size_x / 2);
-        this.data.push(center_y - size_y / 2);
-        
-        this.data.push(1);
-        this.data.push(1);
-        this.data.push(center_x + size_x / 2);
-        this.data.push(center_y + size_y / 2);
-        
-        this.data.push(-1);
-        this.data.push(1);
-        this.data.push(center_x - size_x / 2);
-        this.data.push(center_y + size_y / 2);
+
+        this.data = []
+        //6 points for 2 triangles
+        var verts = [[-1,-1],[1,-1],[1,1],[1,1],[-1,1],[-1,-1]];
+        for (var i=0;i<6;i++){
+            this.data.push(verts[i][0]);
+            this.data.push(verts[i][1]);
+            this.data.push(center_x + verts[i][0]*size_x/2);
+            this.data.push(center_y + verts[i][1]*size_y/2);
+        }
     }
     draw() {
         var gl = this.gl;

@@ -6,5 +6,4 @@ How to run:
 
 ![Alt text](example.png?raw=true "Preview")
 
-Thanks to:
-@FilipHusnjak for alternate shader design which works with Windows OS.
+Thanks to: Filip Husnjak (https://github.com/FilipHusnjak) for alternate shader design which works with Windows OS.
